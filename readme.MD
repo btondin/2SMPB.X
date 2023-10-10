@@ -1,4 +1,4 @@
-# 2SMPB_02E PIC16 Library
+# OMRON 2SMPB_02E PIC16 Library
 
 Welcome to the 2SMPB_02E PIC16 Library, designed for interfacing the Omron 2SMPB-02E sensor with an PIC16 MCU.
 
