@@ -51,7 +51,7 @@ int main(void)
     while (1)
     {
         LED1_Toggle();
-        __delay_ms(500);
+        __delay_ms(1000);
         
         OMROM_2SMPB_02E_setPowerMode(OMRON_FORCED_MODE_1); //Begin measurements
         
