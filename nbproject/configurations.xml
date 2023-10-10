@@ -16,7 +16,7 @@
         <itemPath>mcc_generated_files/uart1.h</itemPath>
         <itemPath>mcc_generated_files/i2c1.h</itemPath>
       </logicalFolder>
-      <itemPath>OMROM_2SMPB_02E.h</itemPath>
+      <itemPath>OMRON_2SMPB_02E.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -38,7 +38,7 @@
         <itemPath>mcc_generated_files/i2c1.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
-      <itemPath>OMROM_2SMPB_02E.c</itemPath>
+      <itemPath>OMRON_2SMPB_02E.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -264,6 +264,7 @@
         <property key="debugoptions.useswbreakpoints" value="false"/>
         <property key="event.recorder.enabled" value="false"/>
         <property key="event.recorder.scvd.files" value=""/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="lastid" value=""/>
         <property key="memories.aux" value="false"/>

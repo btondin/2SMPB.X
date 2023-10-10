@@ -33,7 +33,7 @@
 #include <stdio.h>
 #define FCY _XTAL_FREQ
 #include <libpic30.h>
-#include "OMROM_2SMPB_02E.h"
+#include "OMRON_2SMPB_02E.h"
 
 int main(void)
 {
@@ -41,31 +41,31 @@ int main(void)
     SYSTEM_Initialize();
 
     __delay_ms(200);
-    OMROM_2SMPB_02E_Init();
-    printf("\n\n\nStart... Reading Chip ID: %X", OMROM_2SMPB_02E_Get_Chip_ID());
+    OMRON_2SMPB_02E_Init();
+    printf("\n\n\nStart... Reading Chip ID: %X", OMRON_2SMPB_02E_Get_Chip_ID());
     
-    OMROM_2SMPB_02E_set_Avg(OMRON_AVG_64, OMRON_AVG_64); //Set Average times ( Temp, press )    
-    OMROM_2SMPB_02E_Set_Filter(OMRON_IIR_COEFF_32); //Set IIR Filtetr    
-    OMROM_2SMPB_02E_setPowerMode(OMRON_SLEEP_MODE); //Set Power mode
+    OMRON_2SMPB_02E_set_Avg(OMRON_AVG_64, OMRON_AVG_64); //Set Average times ( Temp, press )    
+    OMRON_2SMPB_02E_Set_Filter(OMRON_IIR_COEFF_32); //Set IIR Filtetr    
+    OMRON_2SMPB_02E_setPowerMode(OMRON_SLEEP_MODE); //Set Power mode
 
     while (1)
     {
         LED1_Toggle();
         __delay_ms(1000);
         
-        OMROM_2SMPB_02E_setPowerMode(OMRON_FORCED_MODE_1); //Begin measurements
+        OMRON_2SMPB_02E_setPowerMode(OMRON_FORCED_MODE_1); //Begin measurements
         
         uint16_t attempts = 0;        
-        while (OMROM_2SMPB_02E_Check_Ready () == OMRON_DATA_NOT_READY) //Check for data ready
+        while (OMRON_2SMPB_02E_Check_Ready () == OMRON_DATA_NOT_READY) //Check for data ready
         {            
             attempts++;
             __delay_us(100);
         }
 
-        printf("\n\n Temperature: %.2f °C, Pressure: %.0f hPa", OMROM_2SMPB_02E_Read_Comp_Temp(), OMROM_2SMPB_02E_Read_Comp_Press() / 100);
+        printf("\n\n Temperature: %.2f °C, Pressure: %.0f hPa", OMRON_2SMPB_02E_Read_Comp_Temp(), OMRON_2SMPB_02E_Read_Comp_Press() / 100);
         printf("\n Attempts: %u", attempts); // Attempts before data is ready
 
-        // printf("\n\nChipID: %X", OMROM_2SMPB_02E_Get_Chip_ID());
+        // printf("\n\nChipID: %X", OMRON_2SMPB_02E_Get_Chip_ID());
     }
 
     return 1;

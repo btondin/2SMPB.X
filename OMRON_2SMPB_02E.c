@@ -1,4 +1,4 @@
-#include "OMROM_2SMPB_02E.h"
+#include "OMRON_2SMPB_02E.h"
 #include "i2c1.h"
 #include "clock.h"
 #define FCY _XTAL_FREQ
@@ -217,7 +217,7 @@ uint16_t OMRON_2SMPB_02E_Write(uint8_t address, uint8_t *pData, uint16_t nCount)
 }
 
 
-uint8_t OMROM_2SMPB_02E_Get_Chip_ID(void)
+uint8_t OMRON_2SMPB_02E_Get_Chip_ID(void)
 {
     uint8_t data;
     uint16_t result; 
@@ -225,7 +225,7 @@ uint8_t OMROM_2SMPB_02E_Get_Chip_ID(void)
     return data;
 }
 
-void OMROM_2SMPB_02E_Reset()    //Sensor Reset
+void OMRON_2SMPB_02E_Reset()    //Sensor Reset
 {   
     uint8_t data = OMRON_CMD_RESET;
     uint16_t result;
@@ -234,7 +234,7 @@ void OMROM_2SMPB_02E_Reset()    //Sensor Reset
 } 
 
 /**/
-uint8_t OMROM_2SMPB_02E_Teste_RW()    //Teste pra saber se está lendo corretamente
+uint8_t OMRON_2SMPB_02E_Teste_RW()    //Teste pra saber se está lendo corretamente
 {   
     uint8_t dataW[2] = {0xC0,0x80};
     uint8_t dataR[2] = {0xAB,0xCD};
@@ -246,7 +246,7 @@ uint8_t OMROM_2SMPB_02E_Teste_RW()    //Teste pra saber se está lendo corretamen
 }
 
 
-void OMROM_2SMPB_02E_clearRegisterBit(uint8_t reg, uint8_t bitMask)
+void OMRON_2SMPB_02E_clearRegisterBit(uint8_t reg, uint8_t bitMask)
 {
     uint8_t temper = 0x00;     
     uint16_t result; 
@@ -255,7 +255,7 @@ void OMROM_2SMPB_02E_clearRegisterBit(uint8_t reg, uint8_t bitMask)
     result = OMRON_2SMPB_02E_Write(reg, &temper, 1);       
 }
 
-void OMROM_2SMPB_02E_setRegisterBit(uint8_t reg, uint8_t bitMask)
+void OMRON_2SMPB_02E_setRegisterBit(uint8_t reg, uint8_t bitMask)
 {
     uint8_t temper = 0x00;     
     uint16_t result; 
@@ -264,7 +264,7 @@ void OMROM_2SMPB_02E_setRegisterBit(uint8_t reg, uint8_t bitMask)
     result = OMRON_2SMPB_02E_Write(reg, &temper, 1);       
 }
 
-void OMROM_2SMPB_02E_set_Avg(uint8_t Avg_Temp, uint8_t Avg_Press)
+void OMRON_2SMPB_02E_set_Avg(uint8_t Avg_Temp, uint8_t Avg_Press)
 {
     uint8_t temper = 0x00;     
     uint16_t result; 
@@ -275,7 +275,7 @@ void OMROM_2SMPB_02E_set_Avg(uint8_t Avg_Temp, uint8_t Avg_Press)
     result = OMRON_2SMPB_02E_Write(OMRON_CTRL_MEAS, &temper, 1);       
 }
 
-void OMROM_2SMPB_02E_setPowerMode(uint8_t mode){    //Define o modo do sensor
+void OMRON_2SMPB_02E_setPowerMode(uint8_t mode){    //Define o modo do sensor
                                 //OMRON_SLEEP_MODE
                                 //OMRON_FORCED_MODE_1
                                 //OMRON_FORCED_MODE_2
@@ -291,7 +291,7 @@ void OMROM_2SMPB_02E_setPowerMode(uint8_t mode){    //Define o modo do sensor
 } 
 
 
-void OMROM_2SMPB_02E_Set_Standby_Time(uint8_t T_Standby) 
+void OMRON_2SMPB_02E_Set_Standby_Time(uint8_t T_Standby) 
 {
     uint8_t temper = 0x00;     
     uint16_t result; 
@@ -301,7 +301,7 @@ void OMROM_2SMPB_02E_Set_Standby_Time(uint8_t T_Standby)
     result = OMRON_2SMPB_02E_Write(OMRON_IO_SETUP, &temper, 1);       
 }
 
-void OMROM_2SMPB_02E_Set_Filter(uint8_t n_coeff)
+void OMRON_2SMPB_02E_Set_Filter(uint8_t n_coeff)
 {  
     uint8_t temper = 0x00; 
     uint16_t result;     
@@ -309,7 +309,7 @@ void OMROM_2SMPB_02E_Set_Filter(uint8_t n_coeff)
     result = OMRON_2SMPB_02E_Write(OMRON_IIR_CNT, &temper, 1);
 }
  
-uint8_t OMROM_2SMPB_02E_Check_Ready ( void )
+uint8_t OMRON_2SMPB_02E_Check_Ready ( void )
 {
     uint8_t temper;
     uint16_t result;    
@@ -326,7 +326,7 @@ uint8_t OMROM_2SMPB_02E_Check_Ready ( void )
     }
 }
 
-int32_t OMROM_2SMPB_02E_Read_Raw_Temp ( void )
+int32_t OMRON_2SMPB_02E_Read_Raw_Temp ( void )
 {
     uint16_t result = 0; 
     uint8_t rx_buf[ 3 ] = {0,0,0};
@@ -339,7 +339,7 @@ int32_t OMROM_2SMPB_02E_Read_Raw_Temp ( void )
     return (( int32_t )temp_data) - 0x00800000; //Conversion
 }
 
-float OMROM_2SMPB_02E_Read_Raw_Press ( void )
+float OMRON_2SMPB_02E_Read_Raw_Press ( void )
 {
     uint16_t result; 
     uint8_t rx_buf[ 3 ];
@@ -357,12 +357,12 @@ float OMROM_2SMPB_02E_Read_Raw_Press ( void )
 }
 
 
-uint16_t OMROM_2SMPB_02E_Read_OTP(uint8_t *coeffs) //L? coeficientes da NVM
+uint16_t OMRON_2SMPB_02E_Read_OTP(uint8_t *coeffs) //L? coeficientes da NVM
 {    
     return(OMRON_2SMPB_02E_Read(OMRON_COE_B00_1, coeffs, 25));       
 }
 
-float OMROM_2SMPB_02E_Get_Comp_Coeffs ( uint16_t OTP_val, float A_factor, float S_factor )
+float OMRON_2SMPB_02E_Get_Comp_Coeffs ( uint16_t OTP_val, float A_factor, float S_factor )
 {
     
     int16_t OTP_signed = 0;
@@ -375,15 +375,12 @@ float OMROM_2SMPB_02E_Get_Comp_Coeffs ( uint16_t OTP_val, float A_factor, float 
     return ( (float)(A_factor + ( S_factor *( (( float ) OTP_signed) / OMRON_COEFFICIENT_DIVIDER ) )));
 }
 
-
-
-//float OMROM_2SMPB_02E_Get_Comp_Temp(float *demonho )
-float OMROM_2SMPB_02E_Read_Comp_Temp(void )
+float OMRON_2SMPB_02E_Read_Comp_Temp(void )
 {
     int32_t Dt = 0;
     float tr = 0;
     
-    Dt = OMROM_2SMPB_02E_Read_Raw_Temp();
+    Dt = OMRON_2SMPB_02E_Read_Raw_Temp();
     
     tr = (float) ( a0 + a1 * Dt + a2 * pow( Dt, 2 ) );     
       
@@ -392,13 +389,13 @@ float OMROM_2SMPB_02E_Read_Comp_Temp(void )
 }
 
 
-float OMROM_2SMPB_02E_Read_Comp_Press(void )
+float OMRON_2SMPB_02E_Read_Comp_Press(void )
 {
     int32_t Dt = 0;
     float Dp = 0, Tr = 0, pr = 0;
     
-    Dt = OMROM_2SMPB_02E_Read_Raw_Temp(); 
-    Dp = OMROM_2SMPB_02E_Read_Raw_Press();
+    Dt = OMRON_2SMPB_02E_Read_Raw_Temp(); 
+    Dp = OMRON_2SMPB_02E_Read_Raw_Press();
     Tr = (float)(( a0 + a1 * Dt + a2 * pow( Dt, 2 ) ));     
     
         
@@ -409,19 +406,18 @@ float OMROM_2SMPB_02E_Read_Comp_Press(void )
 }
 
 
-uint16_t OMROM_2SMPB_02E_Init(void)
+uint16_t OMRON_2SMPB_02E_Init(void)
 {    
     uint16_t result, aux = 0;   
     int32_t tmp = 0;
     
-    
     __delay_ms(10); //Aguarda POR
-    //OMROM_2SMPB_02E_Reset(); //Reseta sensor (opcional pois há POR)  
+    //OMRON_2SMPB_02E_Reset(); //Reseta sensor (opcional pois há POR)  
     
     //uint8_t NVM_coeffs[25]; //Coeficientes de compensa??o 
-    result = OMROM_2SMPB_02E_Read_OTP(NVM_coeffs); //Coeficientes de compensa??o); //L? os coeficientes 
+    result = OMRON_2SMPB_02E_Read_OTP(NVM_coeffs); //Coeficientes de compensa??o); //L? os coeficientes 
     
-    OMROM_2SMPB_02E_setPowerMode(OMRON_SLEEP_MODE); //Modo dormindo
+    OMRON_2SMPB_02E_setPowerMode(OMRON_SLEEP_MODE); //Modo dormindo
     
     //a0    
     
@@ -442,56 +438,56 @@ uint16_t OMROM_2SMPB_02E_Init(void)
     
     //a1
     aux = NVM_coeffs[ 20 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 21 ];
-    a1 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_a1, S_a1 );
+    a1 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_a1, S_a1 );
     
     //a2
     aux = NVM_coeffs[ 22 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 23 ];
-    a2  = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_a2, S_a2 );
+    a2  = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_a2, S_a2 );
     
     //bt1
     aux = NVM_coeffs[ 2 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 3 ];
-    bt1 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bt1, S_bt1 );
+    bt1 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bt1, S_bt1 );
     
     //bt2
     aux = NVM_coeffs[ 4 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 5 ];
-    bt2 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bt2, S_bt2 );
+    bt2 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bt2, S_bt2 );
     
     //bp1
     aux = NVM_coeffs[ 6 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 7 ];
-    bp1 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bp1, S_bp1 );
+    bp1 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bp1, S_bp1 );
     
     //b11
     aux = NVM_coeffs[ 8 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 9 ];
-    b11 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_b11, S_b11 );
+    b11 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_b11, S_b11 );
     
     //bp2
     aux = NVM_coeffs[ 10 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 11 ];
-    bp2 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bp2, S_bp2 );
+    bp2 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bp2, S_bp2 );
     
     //b12
     aux = NVM_coeffs[ 12 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 13 ];
-    b12 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_b12, S_b12 );
+    b12 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_b12, S_b12 );
     
     //b21
     aux = NVM_coeffs[ 14 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 15 ];
-    b21 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_b21, S_b21 );
+    b21 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_b21, S_b21 );
     
     //bp3
     aux = NVM_coeffs[ 16 ]; aux <<= 8 ;  aux |= NVM_coeffs[ 17 ];
-    bp3 = OMROM_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bp3, S_bp3 );
+    bp3 = OMRON_2SMPB_02E_Get_Comp_Coeffs ( aux, A_bp3, S_bp3 );
     
     //Set Average times
-    OMROM_2SMPB_02E_set_Avg(OMRON_AVG_32, OMRON_AVG_32); // Temp, press  
+    OMRON_2SMPB_02E_set_Avg(OMRON_AVG_32, OMRON_AVG_32); // Temp, press  
     
     //Set IIR Filter
-    OMROM_2SMPB_02E_Set_Filter(OMRON_IIR_COEFF_32);
+    OMRON_2SMPB_02E_Set_Filter(OMRON_IIR_COEFF_32);
     
     
     __delay_ms(1);
     return(result);
 }
 /*
-uint8_t OMROM_2SMPB_02E_dataReady(uint8_t mask)
+uint8_t OMRON_2SMPB_02E_dataReady(uint8_t mask)
 {
     uint16_t attempts = 0;       
     

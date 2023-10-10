@@ -7,8 +7,8 @@
  * Date: 10/09/2023
  *****************************************************************************/
 
-#ifndef OMROM_2SMPB_02E_H
-#define	OMROM_2SMPB_02E_H
+#ifndef OMRON_2SMPB_02E_H
+#define	OMRON_2SMPB_02E_H
 
 #include <stdint.h>
 #include <math.h>
@@ -170,61 +170,61 @@
  *
  * @return The chip ID value.
  */
-uint8_t OMROM_2SMPB_02E_Get_Chip_ID(void);
+uint8_t OMRON_2SMPB_02E_Get_Chip_ID(void);
 
 /**
  * @brief Reset the OMRON sensor.
  */
-void OMROM_2SMPB_02E_Reset(void);
+void OMRON_2SMPB_02E_Reset(void);
 
 /**
  * @brief Initialize the OMRON sensor.
  *
  * @return 0 if successful, non-zero on failure.
  */
-uint16_t OMROM_2SMPB_02E_Init(void);
+uint16_t OMRON_2SMPB_02E_Init(void);
 
 /**
  * @brief Set the power mode of the OMRON sensor.
  *
  * @param mode The desired power mode.
  */
-void OMROM_2SMPB_02E_setPowerMode(uint8_t mode);
+void OMRON_2SMPB_02E_setPowerMode(uint8_t mode);
 
 /**
  * @brief Read compensated temperature from the sensor.
  *
  * @return The compensated temperature value.
  */
-float OMROM_2SMPB_02E_Read_Comp_Temp(void);
+float OMRON_2SMPB_02E_Read_Comp_Temp(void);
 
 /**
  * @brief Read compensated pressure from the sensor.
  *
  * @return The compensated pressure value.
  */
-float OMROM_2SMPB_02E_Read_Comp_Press(void);
+float OMRON_2SMPB_02E_Read_Comp_Press(void);
 
 /**
  * @brief Check if data is ready to read.
  *
  * @return The status OMRON_DATA_NOT_READY (0) or OMRON_DATA_READY (1).
  */
-uint8_t OMROM_2SMPB_02E_Check_Ready(void);
+uint8_t OMRON_2SMPB_02E_Check_Ready(void);
 
 /**
  * @brief Set the filter coefficient.
  *
  * @param n_coeff The filter coefficient to set.
  */
-void OMROM_2SMPB_02E_Set_Filter(uint8_t n_coeff);
+void OMRON_2SMPB_02E_Set_Filter(uint8_t n_coeff);
 
 /**
  * @brief Set the standby time.
  *
  * @param T_Standby The standby time to set.
  */
-void OMROM_2SMPB_02E_Set_Standby_Time(uint8_t T_Standby);
+void OMRON_2SMPB_02E_Set_Standby_Time(uint8_t T_Standby);
 
 /**
  * @brief Set the averaging parameters for temperature and pressure.
@@ -232,7 +232,7 @@ void OMROM_2SMPB_02E_Set_Standby_Time(uint8_t T_Standby);
  * @param Avg_Temp   The averaging parameter for temperature.
  * @param Avg_Press  The averaging parameter for pressure.
  */
-void OMROM_2SMPB_02E_set_Avg(uint8_t Avg_Temp, uint8_t Avg_Press);
+void OMRON_2SMPB_02E_set_Avg(uint8_t Avg_Temp, uint8_t Avg_Press);
 
 
-#endif	/* OMROM_2SMPB_02E_H */
+#endif	/* OMRON_2SMPB_02E_H */
